@@ -1,3 +1,4 @@
+TASK 1
 if number % 2 == 0:
    def check_even_odd(number):
      return f"{number} is Even"
@@ -7,3 +8,72 @@ if number % 2 == 0:
 
 print(check_even_odd(10))
 print(check_even_odd(7))
+
+
+TASK 2
+def atm_machine():
+    # Fixed PIN and balance
+    correct_pin = "1234"
+    balance = 1000
+
+    # User enters PIN
+    entered_pin = input("Enter your PIN: ")
+
+    if entered_pin == correct_pin:
+        print("\nPIN accepted. Welcome to your account!")
+        
+        while True:
+            # Display the menu
+            print("\nPlease choose an option:")
+            print("1. Check Balance")
+            print("2. Withdraw Money")
+            print("3. Exit")
+
+            # Get user's choice
+            choice = input("Enter your choice (1, 2, or 3): ")
+
+            if choice == "1":
+                print(f"\nYour current balance is: ${balance}")
+
+            elif choice == "2":
+                try:
+                    withdraw_amount = float(input("\nEnter the amount to withdraw: $"))
+                    if withdraw_amount <= balance:
+                        balance -= withdraw_amount
+                        print(f"\nWithdrawal successful. Your new balance is: ${balance}")
+                    else:
+                        print("\nInsufficient balance. Please try again.")
+                except ValueError:
+                    print("\nInvalid input. Please enter a valid amount.")
+
+            elif choice == "3":
+                print("\nThank you for using the ATM. Goodbye!")
+                break
+
+            else:
+                print("\nInvalid choice. Please select 1, 2, or 3.")
+
+    else:
+        print("\nIncorrect PIN. Access denied.")
+
+
+TASK 3
+def login_system():
+    # Correct username and password
+    correct_username = "admin"
+    correct_password = 12345
+
+    # Get input from user
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+
+    # Check username and password
+    if username != correct_username:
+        print("\nIncorrect username")
+    elif not password.isdigit() or int(password) != correct_password:
+        print("\nIncorrect password")
+    else:
+        print("\nLogin Successful!")
+
+# Run the login system
+login_system()
